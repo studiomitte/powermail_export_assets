@@ -2,12 +2,14 @@
 	"name": "studiomitte/powermail-export-assets",
 	"type": "typo3-cms-extension",
 	"description": "Export assets",
-	"author": [
+	"authors": [
 		{
-			"name": "Elmar Putz",
-			"role": "Developer",
-			"company": "Studio Mitte Digital Media"
+			"name": "Georg Ringer",
+			"role": "Developer"
 		}
+	],
+	"license": [
+		"GPL-2.0-or-later"
 	],
 	"require": {
 		"typo3/cms-core": "^9 || ^10 || ^11",
