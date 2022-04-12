@@ -1,0 +1,27 @@
+{
+	"name": "studiomitte/powermail-export-assets",
+	"type": "typo3-cms-extension",
+	"description": "Export assets",
+	"author": [
+		{
+			"name": "Elmar Putz",
+			"role": "Developer",
+			"company": "Studio Mitte Digital Media"
+		}
+	],
+	"require": {
+		"typo3/cms-core": "^9 || ^10 || ^11",
+		"in2code/powermail": "^7 || ^8 || ^9",
+		"alchemy/zippy": "^1"
+	},
+	"autoload": {
+		"psr-4": {
+			"StudioMitte\\PowermailExportAssets\\": "Classes"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "powermail_export_assets"
+		}
+	}
+}
