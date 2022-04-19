@@ -67,7 +67,7 @@ class ExportUtility {
                 /** @var Answer $answer */
                 if ($answer->getField() && $answer->getField()->getType() === 'file') {
                     foreach ($answer->getValue() as $k => $v) {
-                        $files[$answer->getField()->getUid() . '_' . $k] = $v;
+                        $files[$mail->getUid() .'_' . $answer->getUid() . '_' . $k] = $v;
                     }
                 }
             }
