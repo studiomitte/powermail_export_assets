@@ -65,7 +65,16 @@ class XclassedModuleController8 extends ModuleController
         header('Content-Disposition: attachment; filename=' . $zipFileName);
         header('Content-Length: ' . filesize($fullzipFilePath));
 
-        readfile($fullzipFilePath);
+        ini_set('memory_limit', '512MB');
+        $file = fopen($fullzipFilePath, 'rb');
+        $chunk = 1024; // 1024 kb/s
+        while(!feof($file)) {
+            print fread($file, (int)round($chunk * 1024));
+            flush();
+        }
+
+        fclose($file);
+
         exit;
     }
 
