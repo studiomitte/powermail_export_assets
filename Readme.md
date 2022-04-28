@@ -11,3 +11,10 @@ Enhance EXT:powermail to export attachments in the backend module by xclassing t
 ## Usage
 
 Install with `composer req studiomitte/powermail-export-assets` and done.
+
+
+## Credits
+
+This extension was created by Georg Ringer for [Studio Mitte, Linz](https://studiomitte.com) with ♥.
+
+[Find more TYPO3 extensions we have developed](https://www.studiomitte.com/loesungen/typo3) that provide additional features for TYPO3 sites. 
