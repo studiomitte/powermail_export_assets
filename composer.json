@@ -13,7 +13,7 @@
 	],
 	"require": {
 		"typo3/cms-core": "^9 || ^10 || ^11",
-		"in2code/powermail": "^7 || ^8 || ^9",
+		"in2code/powermail": "^7 || ^8 || ^9 || ^10",
 		"alchemy/zippy": "^1"
 	},
 	"autoload": {
