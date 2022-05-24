@@ -1,0 +1,102 @@
+^Index: src/Adapter/AdapterContainer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Adapter/AdapterContainer.php b/src/Adapter/AdapterContainer.php
+--- a/src/Adapter/AdapterContainer.php
++++ b/src/Adapter/AdapterContainer.php
+@@ -162,6 +162,7 @@
+      * @return bool true on success or false on failure.
+      * <p>The return value will be casted to boolean if non-boolean was returned.</p>
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetExists($offset)
+     {
+         return isset($this->items[$offset]);
+@@ -176,6 +177,7 @@
+      * </p>
+      * @return mixed Can return all value types.
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetGet($offset)
+     {
+         if (array_key_exists($offset, $this->items) && is_callable($this->items[$offset])) {
+@@ -201,6 +203,7 @@
+      * </p>
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetSet($offset, $value)
+     {
+         $this->items[$offset] = $value;
+@@ -215,6 +218,7 @@
+      * </p>
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetUnset($offset)
+     {
+         unset($this->items[$offset]);
+Index: src/Archive/Archive.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Archive/Archive.php b/src/Archive/Archive.php
+--- a/src/Archive/Archive.php
++++ b/src/Archive/Archive.php
+@@ -81,6 +81,7 @@
+      *
+      * @return \ArrayIterator|MemberInterface[] An iterator
+      */
++    #[\ReturnTypeWillChange]
+     public function getIterator()
+     {
+         return new \ArrayIterator($this->getMembers());
+Index: src/Resource/TeleporterContainer.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Resource/TeleporterContainer.php b/src/Resource/TeleporterContainer.php
+--- a/src/Resource/TeleporterContainer.php
++++ b/src/Resource/TeleporterContainer.php
+@@ -132,6 +132,7 @@
+      * <p>
+      * The return value will be casted to boolean if non-boolean was returned.
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetExists($offset)
+     {
+         return isset($this->teleporters[$offset]);
+@@ -146,6 +147,7 @@
+      * </p>
+      * @return mixed Can return all value types.
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetGet($offset)
+     {
+         return $this->getTeleporter($offset);
+@@ -163,6 +165,7 @@
+      * </p>
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetSet($offset, $value)
+     {
+         throw new \BadMethodCallException();
+@@ -177,11 +180,13 @@
+      * </p>
+      * @return void
+      */
++    #[\ReturnTypeWillChange]
+     public function offsetUnset($offset)
+     {
+         throw new \BadMethodCallException();
+     }
+
++    #[\ReturnTypeWillChange]
+     public function count()
+     {
+         return count($this->teleporters);

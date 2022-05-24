@@ -12,6 +12,19 @@ Enhance EXT:powermail to export attachments in the backend module by xclassing t
 
 Install with `composer req studiomitte/powermail-export-assets` and done.
 
+### Using PHP 8
+
+Currently the library to create the zip files is not fully compatible with PHP8. 
+This can be fixed by appyling the patch file found in `Resources/Private/Patches/php8-alchemy-zippy.patch`.
+
+```json
+ "patches": {
+      "alchemy/zippy": {
+        "php8 notices": "patches/php8-alchemy-zippy.patch"
+      }
+    }
+```
+
 
 ## Credits
 

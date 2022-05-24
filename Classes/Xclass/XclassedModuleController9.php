@@ -7,6 +7,7 @@ namespace StudioMitte\PowermailExportAssets\Xclass;
 use Alchemy\Zippy\Zippy;
 use In2code\Powermail\Controller\ModuleController;
 use In2code\Powermail\Utility\StringUtility;
+use Psr\Http\Message\ResponseInterface;
 use StudioMitte\PowermailExportAssets\ExportUtility;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Crypto\Random;
@@ -36,7 +37,12 @@ class XclassedModuleController9 extends ModuleController
             ]
         );
 
-        $files = $exportUtility->collectAssets($mails);
+        if ($this->request->hasArgument('exportFiles') && $this->request->getArgument('exportFiles')) {
+            $files = $exportUtility->collectAssets($mails);
+        } else {
+            $files = [];
+        }
+
         $fileName = StringUtility::conditionalVariable($this->settings['export']['filenameCsv'], 'export.csv');
 
         if (empty($files)) {
@@ -61,11 +67,12 @@ class XclassedModuleController9 extends ModuleController
             'media' => $exportUtility->persistMedia($files, $this->settings['uploadPath'], $exportDirectory)
         ], true);
 
+        @ini_set('memory_limit', '512MB');
         return $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'application/zip')
             ->withHeader('Content-Length', (string)filesize($fullzipFilePath))
             ->withHeader('Content-Disposition', 'attachment; filename=' . $zipFileName)
-            ->withBody($this->streamFactory->createStream(readfile($fullzipFilePath)));
+            ->withBody($this->streamFactory->createStreamFromFile($fullzipFilePath));
     }
 
 }

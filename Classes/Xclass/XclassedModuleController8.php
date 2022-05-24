@@ -38,7 +38,11 @@ class XclassedModuleController8 extends ModuleController
             ]
         );
 
-        $files = $exportUtility->collectAssets($mails);
+        if ($this->request->hasArgument('exportFiles') && $this->request->getArgument('exportFiles')) {
+            $files = $exportUtility->collectAssets($mails);
+        } else {
+            $files = [];
+        }
         $fileName = StringUtility::conditionalVariable($this->settings['export']['filenameCsv'], 'export.csv');
 
         if (empty($files)) {

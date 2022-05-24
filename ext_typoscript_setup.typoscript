@@ -1,0 +1,4 @@
+module.tx_powermail {
+    view {
+        partialRootPaths.439 = EXT:powermail_export_assets/Resources/Private/Partials/
+    }
