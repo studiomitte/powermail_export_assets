@@ -8,7 +8,7 @@ try {
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\In2code\Powermail\Controller\ModuleController::class] = [
             'className' => \StudioMitte\PowermailExportAssets\Xclass\XclassedModuleController8::class,
         ];
-    } elseif($version === 9) {
+    } else {
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][\In2code\Powermail\Controller\ModuleController::class] = [
             'className' => \StudioMitte\PowermailExportAssets\Xclass\XclassedModuleController9::class,
         ];
